@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE html>id
 <html lang="en" data-bs-theme="dark">
   <head>
     <meta charset="UTF-8" />
@@ -14,11 +14,10 @@
   <body>
     <!-- Header -->
     <div
-      class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start"
+      class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-center"
     >
-
       <!-- Dropdown menu -->
-      <div class="dropdown">
+      <div class="dropdown me-3">
         <button
           class="btn btn-secondary dropdown-toggle"
           type="button"
@@ -28,23 +27,46 @@
           Select Joke Category
         </button>
         <ul class="dropdown-menu">
-          <li><a class="dropdown-item" href="#">Action</a></li>
-          <li><a class="dropdown-item" href="#">Another action</a></li>
-          <li><a class="dropdown-item" href="#">Something else here</a></li>
+          <% categories.forEach(category => { %>
+          <li>
+            <a class="dropdown-item" href="/category?selected=<%= category %>">
+              <%= category %>
+            </a>
+          </li>
+          <% }) %>
         </ul>
       </div>
+
+      <div class="col-12 col-lg-auto mb-3 mt-3">
+        <h2 class="text-center">OR</h2>
+      </div>
       <!-- Search Box -->
-      <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
+      <form
+        class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3 ms-lg-3"
+        role="search"
+        id="searchForm"
+        action="/text-search"
+        method="GET"
+      >
         <input
-          type="search"
+          id="searchText"
+          type="text"
+          name="query"
           class="form-control form-control-dark text-bg-dark"
           placeholder="Search for text in Jokes..."
           aria-label="Search"
         />
       </form>
-
+      <!-- Submit button -->
       <div class="text-end">
-        <button type="button" class="btn btn-outline-light me-2">Submit</button>
+        <button
+          id="submitButton"
+          form="searchForm"
+          type="submit"
+          class="btn btn-outline-light me-2"
+        >
+          Submit
+        </button>
       </div>
     </div>
     <!-- Main page data -->
@@ -62,21 +84,26 @@
         </div>
         <div class="col-lg-6">
           <h1 class="display-5 fw-bold text-body-emphasis lh-1 mb-3">
-            Responsive left-aligned hero with image
+            The Joke:
           </h1>
-          <p class="lead">
-            Quickly design and customize responsive mobile-first sites with
-            Bootstrap, the world’s most popular front-end open source toolkit,
-            featuring Sass variables and mixins, responsive grid system,
-            extensive prebuilt components, and powerful JavaScript plugins.
-          </p>
+          <p class="lead"><%= joke %></p>
           <div class="d-grid gap-2 d-md-flex justify-content-md-start">
-            <button type="button" class="btn btn-primary btn-lg px-4 me-md-2">
-              Primary
+            <button
+              id="newJokeButton"
+              type="button"
+              class="btn btn-primary btn-lg px-4 me-md-2"
+              action="/"
+              method="post"
+            >
+              New Random Joke
             </button>
-            <button type="button" class="btn btn-outline-secondary btn-lg px-4">
-              Default
-            </button>
+            <script>
+              document
+                .getElementById("newJokeButton")
+                .addEventListener("click", function () {
+                  window.location.href = "/";
+                });
+            </script>
           </div>
         </div>
       </div>
