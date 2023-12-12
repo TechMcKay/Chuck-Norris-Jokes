@@ -7,6 +7,8 @@ This is a simple web application built with JavaScript, HTML, and CSS that fetch
 ## Features
 
 - Fetch and display a random Chuck Norris joke.
+- Search for jokes based on categories.
+- Search for jokes with certain text in them.
 - User-friendly interface with easy navigation.
 
 ## Installation
@@ -15,7 +17,7 @@ Follow these steps to install and run the project on your local machine:
 
 1. Clone the repository:
     ```
-    git clone https://github.com/yourusername/chuck-norris-jokes-generator.git
+    git clone https://github.com/TechMcKay/chuck-norris-jokes.git
     ```
 
 2. Navigate into the project directory:
@@ -30,7 +32,7 @@ Follow these steps to install and run the project on your local machine:
 
 4. Start the server:
     ```
-    npm start
+    node .\index.js
     ```
 
 Now, you can visit `http://localhost:3000` to view the app.
@@ -39,6 +41,10 @@ Now, you can visit `http://localhost:3000` to view the app.
 
 - Express.js: Fast, unopinionated, minimalist web framework for Node.js
 - Axios: Promise based HTTP client for the browser and node.js
+
+## System Reqiurments
+
+- Node.js: Ensure you have Node.js installed
 
 ## Contributing
 
